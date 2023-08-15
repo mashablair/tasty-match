@@ -1,11 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
 @Component({
-  selector: 'app-root',
+  selector: "app-root",
   template: `
     <div class="app">
       <header class="header">
-        <img src="/assets/img/logo.svg" alt="Ultimate Donuts" class="logo" />
+        <img src="/assets/img/logo.jpg" alt="Tasty Match app" class="logo" />
+        <h1>Tasty Match</h1>
       </header>
+
+      <p class="mb-3">
+        Hi! This app will help you to find recipes that match the ingredients
+        you already have on hand. Chances are you have a lot of great foods at
+        home and don't need to buy anything else for a healthy, delicious meal.
+      </p>
+
       <router-outlet></router-outlet>
     </div>
   `,
@@ -14,7 +22,6 @@ import { Component, OnInit } from '@angular/core';
       .app {
         background: #fff;
         border-radius: 8px;
-        max-width: 400px;
         width: 94%;
         margin: 25px auto;
         padding: 25px;
@@ -37,12 +44,6 @@ export class AppComponent implements OnInit {
   newMessage!: string;
 
   ngOnInit() {
-    this.message = 'Hello World';
-    this.newMessage = '';
-  }
-
-  handleInput(event: Event) {
-    const { value } = event.target as HTMLInputElement;
-    this.newMessage = value;
+    this.message = "Hello World";
   }
 }

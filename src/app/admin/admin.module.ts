@@ -1,15 +1,15 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { RouterModule, Routes } from '@angular/router';
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
+import { FormsModule } from "@angular/forms";
+import { RouterModule, Routes } from "@angular/router";
 
 // containers
-import { DonutListComponent } from './containers/donut-list/donut-list.component';
-import { DonutSingleComponent } from './containers/donut-single/donut-single.component';
+import { RecipeListComponent } from "./containers/recipe-list/recipe-list.component";
+import { RecipeSingleComponent } from "./containers/recipe-single/recipe-single.component";
 
 // components
-import { DonutCardComponent } from './components/donut-card/donut-card.component';
-import { DonutFormComponent } from './components/donut-form/donut-form.component';
+import { RecipeCardComponent } from "./components/recipe-card/recipe-card.component";
+import { RecipeFormComponent } from "./components/recipe-form/recipe-form.component";
 
 // services
 
@@ -19,28 +19,28 @@ import { DonutFormComponent } from './components/donut-form/donut-form.component
 
 export const routes: Routes = [
   {
-    path: 'donuts',
-    component: DonutListComponent,
+    path: "recipes",
+    component: RecipeCardComponent,
   },
   {
-    path: 'donuts/new',
-    component: DonutSingleComponent,
+    path: "recipes/new",
+    component: RecipeSingleComponent,
     data: { isEdit: false },
   },
   {
-    path: 'donuts/:id',
-    component: DonutSingleComponent,
+    path: "recipes/:id",
+    component: RecipeSingleComponent,
     data: { isEdit: true },
   },
-  { path: '', pathMatch: 'full', redirectTo: 'donuts' },
+  { path: "", pathMatch: "full", redirectTo: "recipes" },
 ];
 
 @NgModule({
   declarations: [
-    DonutListComponent,
-    DonutSingleComponent,
-    DonutCardComponent,
-    DonutFormComponent,
+    RecipeListComponent,
+    RecipeSingleComponent,
+    RecipeCardComponent,
+    RecipeFormComponent,
   ],
   imports: [CommonModule, FormsModule, RouterModule.forChild(routes)],
 })

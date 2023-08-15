@@ -1,11 +1,11 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { NgForm } from '@angular/forms';
-import { Donut } from '../../models/donut.model';
+import { Component, Input, Output, EventEmitter } from "@angular/core";
+import { NgForm } from "@angular/forms";
+import { Recipe } from "../../models/recipe.model";
 
 @Component({
-  selector: 'donut-form',
+  selector: "recipe-form",
   template: `
-    <form class="donut-form" #form="ngForm" *ngIf="donut; else loading">
+    <form class="recipe-form" #form="ngForm" *ngIf="recipe; else loading">
       <label>
         <span>Name</span>
         <input
@@ -14,103 +14,55 @@ import { Donut } from '../../models/donut.model';
           class="input"
           required
           minlength="5"
-          [ngModel]="donut.name"
+          [ngModel]="recipe.name"
           [ngModelOptions]="{ updateOn: 'blur' }"
           #name="ngModel"
         />
         <ng-container *ngIf="name.invalid && name.touched">
-          <div class="donut-form-error" *ngIf="name.errors?.minlength">
+          <div class="recipe-form-error" *ngIf="name.errors?.minlength">
             Minimum length of a name is 5!
           </div>
-          <div class="donut-form-error" *ngIf="name.errors?.required">
+          <div class="recipe-form-error" *ngIf="name.errors?.required">
             Name is required.
           </div>
         </ng-container>
       </label>
 
-      <label>
+      <!-- <label>
         <span>Icon</span>
         <select
           name="icon"
           class="input input--select"
           required
-          [ngModel]="donut.icon"
+          [ngModel]="recipe.img"
           #icon="ngModel"
         >
-          <option *ngFor="let icon of icons" [ngValue]="icon">
+          <option *ngFor="let icon of icons" [ngValue]="img">
             {{ icon }}
           </option>
         </select>
         <ng-container *ngIf="icon.invalid && icon.touched">
-          <div class="donut-form-error" *ngIf="icon.errors?.required">
+          <div class="recipe-form-error" *ngIf="icon.errors?.required">
             Icon is required.
           </div>
         </ng-container>
-      </label>
+      </label> -->
 
-      <label>
-        <span>Price</span>
-        <input
-          type="number"
-          name="price"
-          class="input"
-          required
-          [ngModel]="donut.price"
-          #price="ngModel"
-        />
-        <ng-container *ngIf="price.invalid && price.touched">
-          <div class="donut-form-error" *ngIf="price.errors?.required">
-            Price is required.
-          </div>
-        </ng-container>
-      </label>
-
-      <div class="donut-form-radios">
-        <p class="donut-form-radios-label">Promo:</p>
-        <label>
-          <input
-            type="radio"
-            name="promo"
-            [value]="undefined"
-            [ngModel]="donut.promo"
-          />
-          <span>None</span>
-        </label>
-        <label>
-          <input
-            type="radio"
-            name="promo"
-            value="new"
-            [ngModel]="donut.promo"
-          />
-          <span>New</span>
-        </label>
-        <label>
-          <input
-            type="radio"
-            name="promo"
-            value="limited"
-            [ngModel]="donut.promo"
-          />
-          <span>Limited</span>
-        </label>
-      </div>
-
-      <label>
+      <!-- <label>
         <span>Description</span>
         <textarea
           name="description"
           class="input input--textarea"
           required
-          [ngModel]="donut.description"
+          [ngModel]="recipe.description"
           #description="ngModel"
         ></textarea>
         <ng-container *ngIf="description.invalid && description.touched">
-          <div class="donut-form-error" *ngIf="description.errors?.required">
+          <div class="recipe-form-error" *ngIf="description.errors?.required">
             Description is required.
           </div>
         </ng-container>
-      </label>
+      </label> -->
 
       <button
         type="button"
@@ -149,7 +101,7 @@ import { Donut } from '../../models/donut.model';
         Reset
       </button>
 
-      <div class="donut-form-working" *ngIf="form.valid && form.submitted">
+      <div class="recipe-form-working" *ngIf="form.valid && form.submitted">
         Working...
       </div>
     </form>
@@ -158,7 +110,7 @@ import { Donut } from '../../models/donut.model';
   `,
   styles: [
     `
-      .donut-form {
+      .recipe-form {
         &-radios {
           display: flex;
           align-content: center;
@@ -187,22 +139,22 @@ import { Donut } from '../../models/donut.model';
     `,
   ],
 })
-export class DonutFormComponent {
-  @Input() donut!: Donut;
+export class RecipeFormComponent {
+  @Input() recipe!: Recipe;
   @Input() isEdit!: boolean;
 
-  @Output() create = new EventEmitter<Donut>();
-  @Output() update = new EventEmitter<Donut>();
-  @Output() delete = new EventEmitter<Donut>();
+  @Output() create = new EventEmitter<Recipe>();
+  @Output() update = new EventEmitter<Recipe>();
+  @Output() delete = new EventEmitter<Recipe>();
 
   icons: string[] = [
-    'caramel-swirl',
-    'glazed-fudge',
-    'just-chocolate',
-    'sour-supreme',
-    'strawberry-glaze',
-    'vanilla-sundae',
-    'zesty-lemon',
+    "caramel-swirl",
+    "glazed-fudge",
+    "just-chocolate",
+    "sour-supreme",
+    "strawberry-glaze",
+    "vanilla-sundae",
+    "zesty-lemon",
   ];
 
   handleCreate(form: NgForm) {
@@ -216,15 +168,15 @@ export class DonutFormComponent {
 
   handleUpdate(form: NgForm) {
     if (form.valid) {
-      this.update.emit({ id: this.donut.id, ...form.value });
+      this.update.emit({ id: this.recipe.id, ...form.value });
     } else {
       form.form.markAllAsTouched();
     }
   }
 
   handleDelete() {
-    console.log('handling delete!');
-    if (confirm(`Really delete ${this.donut.name}? `))
-      this.delete.emit({ ...this.donut });
+    console.log("handling delete!");
+    if (confirm(`Really delete ${this.recipe.name}? `))
+      this.delete.emit({ ...this.recipe });
   }
 }

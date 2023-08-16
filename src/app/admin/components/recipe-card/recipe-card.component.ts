@@ -4,15 +4,7 @@ import { Recipe } from "../../models/recipe.model";
 @Component({
   selector: "recipe-card",
   template: ` <div class="recipe-card">
-    <img
-      [src]="
-        recipe.img
-          ? '/assets/img/recipes/' + recipe.img
-          : '/assets/img/recipes/no_image.png'
-      "
-      [alt]="recipe.name"
-      class="recipe-card-icon"
-    />
+    <img [alt]="recipe.name" class="recipe-card-icon" src="{{ recipe.img }}" />
     <div>
       <a class="recipe-card-name" target="_blank" [href]="recipe.url">
         {{ recipe.name }}

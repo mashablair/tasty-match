@@ -15,4 +15,5 @@ export interface Recipe {
   img?: string;
   page?: number;
   url?: string;
+  description?: string;
 }

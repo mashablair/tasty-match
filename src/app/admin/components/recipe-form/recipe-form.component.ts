@@ -28,41 +28,39 @@ import { Recipe } from "../../models/recipe.model";
         </ng-container>
       </label>
 
-      <!-- <label>
-        <span>Icon</span>
+      <label>
+        <span>Category</span>
         <select
-          name="icon"
+          name="category"
           class="input input--select"
           required
-          [ngModel]="recipe.img"
-          #icon="ngModel"
+          [ngModel]="recipe.category"
+          #category="ngModel"
         >
-          <option *ngFor="let icon of icons" [ngValue]="img">
-            {{ icon }}
+          <option
+            *ngFor="let category of categories"
+            [ngValue]="category"
+            selected
+          >
+            {{ category }}
           </option>
         </select>
-        <ng-container *ngIf="icon.invalid && icon.touched">
-          <div class="recipe-form-error" *ngIf="icon.errors?.required">
-            Icon is required.
+        <ng-container *ngIf="category.invalid && category.touched">
+          <div class="recipe-form-error" *ngIf="category.errors?.required">
+            Category is required.
           </div>
         </ng-container>
-      </label> -->
+      </label>
 
-      <!-- <label>
+      <label>
         <span>Description</span>
         <textarea
           name="description"
           class="input input--textarea"
-          required
           [ngModel]="recipe.description"
           #description="ngModel"
         ></textarea>
-        <ng-container *ngIf="description.invalid && description.touched">
-          <div class="recipe-form-error" *ngIf="description.errors?.required">
-            Description is required.
-          </div>
-        </ng-container>
-      </label> -->
+      </label>
 
       <button
         type="button"
@@ -147,15 +145,7 @@ export class RecipeFormComponent {
   @Output() update = new EventEmitter<Recipe>();
   @Output() delete = new EventEmitter<Recipe>();
 
-  icons: string[] = [
-    "caramel-swirl",
-    "glazed-fudge",
-    "just-chocolate",
-    "sour-supreme",
-    "strawberry-glaze",
-    "vanilla-sundae",
-    "zesty-lemon",
-  ];
+  categories: string[] = ["Breakfast", "Lunch", "Dinner", "Snack"];
 
   handleCreate(form: NgForm) {
     if (form.valid) {

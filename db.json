@@ -1,5 +1,5 @@
 {
-  "cards": [
+  "recipes": [
     {
       "id": "y8z0As",
       "name": "Spa Day Fab Four Smoothie",
@@ -13,7 +13,7 @@
         "milk"
       ],
       "category": "Breakfast",
-      "img": "images/spa.png",
+      "img": "/spa.png",
       "page": 164,
       "url": "https://kellyleveque.com/recent-posts/2015/11/15/spa-smoothie"
     },
@@ -29,7 +29,7 @@
         "lemon"
       ],
       "category": "Dinner",
-      "img": "images/zoodles_scampi.png",
+      "img": "/zoodles_scampi.png",
       "page": 165,
       "url": "https://www.instagram.com/p/BiDgSB0H7lL/?hl=en"
     },
@@ -44,7 +44,7 @@
         "nuts"
       ],
       "category": "Lunch",
-      "img": "images/flaky_tuna.png",
+      "img": "/flaky_tuna.png",
       "page": 181,
       "url": "https://kellyleveque.com/recent-posts/marisas-carnitas-kale-salad-w3xm3"
     },
@@ -59,7 +59,7 @@
         "milk"
       ],
       "category": "Breakfast",
-      "img": "images/fab_four.png",
+      "img": "/fab_four.png",
       "page": 167,
       "url": "https://kellyleveque.com/recent-posts/fab-4-smoothies-to-try-this-summer"
     },
@@ -75,7 +75,7 @@
         "hemp"
       ],
       "category": "Lunch",
-      "img": "images/ribbon.png",
+      "img": "/ribbon.png",
       "page": 288,
       "url": "https://homesweethunter.com/2020/02/02/the-healthy-lifestyle-book-everyone-should-read/"
     },
@@ -88,7 +88,7 @@
         "salmon"
       ],
       "category": "Dinner",
-      "img": "images/garlic_salmon.png",
+      "img": "/garlic_salmon.png",
       "page": 263,
       "url": "https://kellyleveque.com/recent-posts/2016/3/29/roasted-salmon-with-lemon-and-dill-over-arugula-and-mache"
     },
@@ -105,7 +105,7 @@
         "lemon"
       ],
       "category": "Breakfast",
-      "img": "images/goddess_smoothie.png",
+      "img": "/goddess_smoothie.png",
       "page": 221,
       "url": "https://kellyleveque.com/recent-posts/2015/7/9/the-bewell-smoothie"
     },
@@ -122,7 +122,7 @@
         "lemon"
       ],
       "category": "Dinner",
-      "img": "images/coconut_tzatziki.png",
+      "img": "/coconut_tzatziki.png",
       "page": 230,
       "url": "https://www.thedoctorstv.com/recipes/kelly-leveque-body-love-every-day-recipes"
     },

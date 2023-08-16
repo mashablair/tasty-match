@@ -3,18 +3,25 @@ import { Recipe } from "../../models/recipe.model";
 
 @Component({
   selector: "recipe-card",
-  template: ` <a class="recipe-card" [routerLink]="recipe.id">
+  template: ` <div class="recipe-card">
     <img
-      src="/assets/img/{{ recipe.img }}"
+      [src]="
+        recipe.img
+          ? '/assets/img/recipes/' + recipe.img
+          : '/assets/img/recipes/no_image.png'
+      "
       [alt]="recipe.name"
       class="recipe-card-icon"
     />
     <div>
-      <p class="recipe-card-name">
+      <a class="recipe-card-name" target="_blank" [href]="recipe.url">
         {{ recipe.name }}
-      </p>
+      </a>
     </div>
-  </a>`,
+    <button class="btn btn--green ml-auto" [routerLink]="recipe.id">
+      Edit
+    </button>
+  </div>`,
   styles: [
     `
       .recipe-card {
@@ -55,5 +62,8 @@ import { Recipe } from "../../models/recipe.model";
   ],
 })
 export class RecipeCardComponent {
+  ngOnInit() {
+    console.log(this.recipe);
+  }
   @Input() recipe!: Recipe;
 }

@@ -18,6 +18,7 @@ export class RecipeService {
   constructor(private http: HttpClient) {}
 
   read() {
+    console.log(this.recipes);
     if (this.recipes.length) {
       return of(this.recipes);
     }
@@ -35,6 +36,7 @@ export class RecipeService {
 
     return this.http.get<Recipe[]>(`/api/recipes`, options).pipe(
       tap((recipes) => {
+        console.log("Fetched recipes from API:", recipes);
         this.recipes = recipes;
       }),
       retry({ count: 2, delay: 5000 }),

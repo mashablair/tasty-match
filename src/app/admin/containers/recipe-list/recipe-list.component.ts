@@ -41,9 +41,9 @@ export class RecipeListComponent implements OnInit {
   constructor(private recipeService: RecipeService) {}
 
   ngOnInit(): void {
-    this.recipeService
-      .read()
-      .subscribe((recipes: Recipe[]) => (this.recipes = recipes));
+    this.recipeService.read().subscribe((recipes: Recipe[]) => {
+      this.recipes = recipes;
+    });
   }
 
   trackById(index: number, value: Recipe) {

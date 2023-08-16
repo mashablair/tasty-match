@@ -20,7 +20,7 @@ import { RecipeFormComponent } from "./components/recipe-form/recipe-form.compon
 export const routes: Routes = [
   {
     path: "recipes",
-    component: RecipeCardComponent,
+    component: RecipeListComponent,
   },
   {
     path: "recipes/new",

@@ -53,6 +53,34 @@ import { Recipe } from "../../models/recipe.model";
       </label>
 
       <label>
+        <span>Image URL</span>
+        <input
+          type="url"
+          name="img"
+          class="input"
+          placeholder="https://example.com"
+          pattern="https://.*"
+          size="30"
+          [ngModel]="recipe.img"
+          #img="ngModel"
+        />
+      </label>
+
+      <label>
+        <span>Recipe URL</span>
+        <input
+          type="url"
+          name="url"
+          class="input"
+          placeholder="https://example.com"
+          pattern="https://.*"
+          size="30"
+          [ngModel]="recipe.url"
+          #url="ngModel"
+        />
+      </label>
+
+      <label>
         <span>Description</span>
         <textarea
           name="description"
@@ -61,6 +89,8 @@ import { Recipe } from "../../models/recipe.model";
           #description="ngModel"
         ></textarea>
       </label>
+
+      <!-- BUTTONS -->
 
       <button
         type="button"
